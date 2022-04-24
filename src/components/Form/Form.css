@@ -1,0 +1,22 @@
+form button[type="submit"] {
+	width: 100%;
+	margin-top: 1em;
+	border: none;
+	outline: none;
+	padding: 0.5rem 0.75rem;
+	cursor: pointer;
+	background-color: rgb(62, 183, 231, 0.5);
+	transition: background-color 150ms ease-in-out;
+	border-radius: 0.25rem;
+	color: white;
+	font-weight: 600;
+}
+
+form button[type="submit"]:disabled {
+	background-color: darkgray;
+	pointer-events: none;
+}
+
+form button[type="submit"]:hover {
+	background-color: rgb(62, 183, 231, 0.8);
+}
