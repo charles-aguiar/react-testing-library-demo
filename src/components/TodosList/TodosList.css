@@ -1,0 +1,58 @@
+.todoslist-container {
+	display: flex;
+	flex-direction: column;
+	height: 65%;
+}
+
+.todoslist-title {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin-bottom: 1rem;
+}
+
+.todoslist-subtitle {
+	font-size: 0.8rem;
+	margin-bottom: 1rem;
+}
+
+.todoslist-display-container {
+	display: flex;
+	flex-direction: column;
+	width: 400px;
+	max-height: 300px;
+	overflow: auto;
+}
+
+.todolist-expandable {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.5rem 0.75rem;
+	margin: 0 0.5rem 0.5rem 0;
+
+	border: 1px solid rgb(209, 206, 206);
+	background-color: rgb(171, 195, 245, 0.1);
+	border-radius: 0.25rem;
+	min-width: 150px;
+	cursor: pointer;
+}
+
+.todoslist-collpsed-container {
+	margin-bottom: 1rem;
+}
+
+.todoslist-todo-title {
+	display: flex;
+	flex-direction: row;
+	gap: 1em;
+}
+
+.todoslist-todo-category {
+	background-color: rgb(171, 195, 245, 0.5);
+	padding: 4px 8px;
+	border-radius: 0.25em;
+	font-size: 12px;
+	color: rgb(65, 8, 197);
+	font-weight: 500;
+}

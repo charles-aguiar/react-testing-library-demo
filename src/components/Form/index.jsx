@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 
 import Dropdown from "../Dropdown";
 import Input from "../Input";
+import SyncLoader from "react-spinners/SyncLoader";
 
 import "./Form.css";
 
@@ -19,54 +20,54 @@ const options = [
 	2) Desabilitar botão de submit caso algum campo esteja vazio
 */
 
-function Form({ onSubmit }) {
-	const [username, setUsername] = useState("");
-	const [password, setPassword] = useState("");
-	const [selectedTechonology, setSelectedTechonology] = useState(null);
+function Form({ onSubmit, loading }) {
+	const [title, setTitle] = useState("");
+	const [description, setDescription] = useState("");
+	const [category, setCategory] = useState(null);
 
 	const handleSubmit = useCallback(
 		(e) => {
 			e.preventDefault();
-			onSubmit({ username, password, selectedTechonology });
+			onSubmit({ title, description, category });
 		},
-		[onSubmit, username, password, selectedTechonology]
+		[onSubmit, title, description, category]
 	);
 
 	return (
 		<form onSubmit={(e) => handleSubmit(e)}>
 			<Input
-				id="name-input"
-				aria-label="name-input"
-				name="name"
+				id="title-input"
+				aria-label="title-input"
+				name="title"
 				type="text"
-				placeholder="Digite seu nome"
-				label="Nome"
-				value={username}
-				onChange={(e) => setUsername(e.target.value)}
+				placeholder="Type Todos title"
+				label="Title"
+				value={title}
+				onChange={(e) => setTitle(e.target.value)}
 			/>
 			<Input
-				id="password-input"
-				aria-label="password-input"
-				name="password"
-				type="password"
-				placeholder="Digite sua senha"
-				label="Senha"
-				value={password}
-				onChange={(e) => setPassword(e.target.value)}
+				id="description-input"
+				aria-label="description-input"
+				name="description"
+				type="text"
+				placeholder="Type Todos description"
+				label="Description"
+				value={description}
+				onChange={(e) => setDescription(e.target.value)}
 			/>
 			<Dropdown
-				label="Tecnologia"
-				placeholder="Selecione uma opção..."
+				label="Categoria"
+				placeholder="Select a category"
 				options={options}
-				selected={selectedTechonology}
-				onSelection={setSelectedTechonology}
+				selected={category}
+				onSelection={setCategory}
 			/>
 			<button
 				type="submit"
 				data-testid="form-submit-button"
-				disabled={!username || !password || !selectedTechonology}
+				disabled={!title || !description || !category}
 			>
-				Cadastrar
+				{loading ? <SyncLoader size={10} color="white" /> : "Create Todo"}
 			</button>
 		</form>
 	);

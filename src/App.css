@@ -6,3 +6,11 @@
 	align-items: center;
 	justify-content: center;
 }
+
+.app-divider {
+	height: 65%;
+	width: 2px;
+	color: black;
+	border-left: 1px solid black;
+	margin: 0 1rem;
+}

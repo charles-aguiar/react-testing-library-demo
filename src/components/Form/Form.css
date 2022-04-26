@@ -1,4 +1,7 @@
 form button[type="submit"] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
 	width: 100%;
 	margin-top: 1em;
 	border: none;
@@ -10,6 +13,7 @@ form button[type="submit"] {
 	border-radius: 0.25rem;
 	color: white;
 	font-weight: 600;
+	min-height: 30px;
 }
 
 form button[type="submit"]:disabled {

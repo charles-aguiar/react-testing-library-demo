@@ -25,11 +25,11 @@ describe("Form tests", () => {
 		render(<Form onSubmit={onSubmit} />);
 
 		/* 2) Act */
-		fireEvent.change(screen.getByLabelText("name-input"), {
-			target: { value: "username" },
+		fireEvent.change(screen.getByLabelText("title-input"), {
+			target: { value: "todo1" },
 		});
-		fireEvent.change(screen.getByLabelText("password-input"), {
-			target: { value: "123" },
+		fireEvent.change(screen.getByLabelText("description-input"), {
+			target: { value: "test" },
 		});
 
 		userEvent.click(screen.getByTestId("form-submit-button"));
@@ -40,18 +40,18 @@ describe("Form tests", () => {
 
 	it("should submit form if all data is filled", () => {
 		/* 1) Arrange */
-		const username = "username";
-		const password = "123";
+		const title = "todo1";
+		const description = "123";
 		const selectedOption = options[0];
 
 		render(<Form onSubmit={onSubmit} />);
 
 		/* 2) Act */
-		fireEvent.change(screen.getByLabelText("name-input"), {
-			target: { value: username },
+		fireEvent.change(screen.getByLabelText("title-input"), {
+			target: { value: title },
 		});
-		fireEvent.change(screen.getByLabelText("password-input"), {
-			target: { value: password },
+		fireEvent.change(screen.getByLabelText("description-input"), {
+			target: { value: description },
 		});
 
 		/* Selection an option from the dropdown */
@@ -62,9 +62,9 @@ describe("Form tests", () => {
 
 		/* 3) Assert */
 		expect(onSubmit).toHaveBeenCalledWith({
-			username,
-			password,
-			selectedTechonology: selectedOption,
+			title,
+			description,
+			category: selectedOption,
 		});
 	});
 });

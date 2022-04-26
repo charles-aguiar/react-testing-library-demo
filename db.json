@@ -1,0 +1,23 @@
+{
+	"todos": [
+		{
+			"id": 1,
+			"title": "Study ReactJS",
+			"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
+			"category": "ReactJS",
+			"done": false
+		},
+		{
+			"title": "Study Typescript",
+			"description": "Cause its cool!",
+			"category": "Typescript",
+			"id": 2
+		},
+		{
+			"title": "Update my NodeJS Environment",
+			"description": "Keep up with new updates",
+			"category": "NodeJS",
+			"id": 3
+		}
+	]
+}
