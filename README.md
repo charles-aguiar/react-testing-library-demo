@@ -1,70 +1,53 @@
-# Getting Started with Create React App
+# Testando aplicativos React
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto foi criado com [Create React App](https://github.com/facebook/create-react-app), que atomatiza a criação de algumas configurações e traz alguns pacotes e script úteis para testes automatizados.
 
-## Available Scripts
+## Pacotes necessários
 
-In the project directory, you can run:
+Será utilizado o pacote `@testing-library/react` como a integração com o executor de testes `jest`. Para instalá-los, basta rodar o comando `npm install --save-dev` ou `yarn add -D`:
 
-### `yarn start`
+```
+npm install --save-dev @testing-library/jest-dom @testing-library/react @testing-library/react-hooks @testing-library/user-event
+```
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Obs.: estes pacotes já vêm pré-instalados caso utilize o create-react-app para fazer o bootstrap do projeto, exceto pelo módulo `@testing-library/react-hooks`, que precisa ser instalado a parte.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Os pacotes `@testing-library/react` e `@testing-library/jest-dom` provêm as funcionalidades da lib `@testing-library` para o React e a integração com o `jest`, respectivamente. O pacote `@testing-library/user-event` provê uma API para simualação de eventos do usuário, como digitação em uma caixa de texto, clique de um botão, rolagem de uma página etc. O pacote `@testing-library/react-hooks` fornece ferramentas para testes de hooks customizados. A documentação pode ser encontrada no [site oficial](https://testing-library.com/docs/react-testing-library/intro/) da lib.
 
-### `yarn test`
+## Rodando os testes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Para rodas os testes, basta executar na pasta raiz do projeto:
 
-### `yarn build`
+```
+npm run test
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+ou
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+yarn test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Também é possível passar alguns parâmetros, por exemplo
 
-### `yarn eject`
+```
+yarn test -- Component.test.js
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+vai executar apenas o teste `Component.test.js`; o comando
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+yarn test -- --coverage
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+vai executar todos os testes e também gerar um report de cobertura. Demais parametrizações podem ser exploradas em https://create-react-app.dev/docs/running-tests/.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Por quê testar meu app?
 
-## Learn More
+- Aumentar a robustez e confiabilidade da aplicação;
+- Muitas vezes, testes unitários não são suficiente: testes de integração, e2e, pirâmide de testes;
+- Desensevolvimento orientado à esperança;
+- Importante: devemos testar **funcionalidades** acima de detalhes de implementação!
+- Recompensa: Boas noites de sono!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Spongebob](/public/spongebob.png)
